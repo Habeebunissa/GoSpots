@@ -26,14 +26,14 @@ class _ImageInputState extends State<ImageInput> {
       return;
     }
     setState(() {
-      _storedImage = imageFile as File;
+      _storedImage = File(imageFile.path);
     });
     final appDir = await getApplicationDocumentsDirectory();
 
     final fileName = path.basename(imageFile.path);
     final savedImage =
         await File(imageFile.path).copy('${appDir.path}/$fileName');
-    widget.onSelectImage(savedImage);
+    // widget.onSelectImage(savedImage);
   }
 
   @override
@@ -67,7 +67,7 @@ class _ImageInputState extends State<ImageInput> {
             label: Text('Take picture'),
             style: TextButton.styleFrom(
                 foregroundColor: Theme.of(context).primaryColor),
-            onPressed: () {},
+            onPressed: _takePicture,
           ),
         ),
       ],

@@ -17,7 +17,7 @@ class _LocationInputState extends State<LocationInput> {
   String? _previewImageUrl;
 
   void _showPreview(double? lat, double? lng) {
-    final staticMapImageUrl = LocationHelper.generateLoctionPreviewImage(
+    final staticMapImageUrl = LocationHelper.generateLocationPreviewImage(
         latitude: lat, longitude: lng);
 
     setState(() {

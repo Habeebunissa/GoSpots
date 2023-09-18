@@ -40,7 +40,7 @@ class GreatPlaces with ChangeNotifier {
       'title': newPlace.title,
       'image': newPlace.image.path,
       'loc_lat': newPlace.location.latitude,
-      'lot_lng': newPlace.location.longitude,
+      'loc_lng': newPlace.location.longitude,
       'address': newPlace.location.address,
     });
   }
@@ -52,15 +52,15 @@ class GreatPlaces with ChangeNotifier {
           (item) => Place(
             id: item['id'],
             title: item['title'],
-            image: File(item['Image']),
+            image: File(item['image']),
             location: PlaceLocation(
-                latitude: item['loc_lat'],
-                longitude: item['loc_lng'],
-                address: item['address']),
+              latitude: item['loc_lat'],
+              longitude: item['loc_lng'],
+              address: item['address'],
+            ),
           ),
         )
         .toList();
-    if (_items.isNotEmpty) {}
     notifyListeners();
   }
 }
