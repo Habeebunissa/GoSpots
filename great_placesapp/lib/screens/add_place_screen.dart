@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:great_placesapp/models/place.dart';
 import '../widgets/image_input.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/great_places.dart';
 import '../widgets/location_input.dart';
 
@@ -34,7 +33,9 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
 
   void _savePlace() {
     if (_titleController.text.isEmpty ||
+        // ignore: unnecessary_null_comparison
         _pickedImage == null ||
+        // ignore: unnecessary_null_comparison
         _pickedLocation == null) {
       return;
     }
